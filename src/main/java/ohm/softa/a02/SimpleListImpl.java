@@ -8,7 +8,7 @@ import java.util.Iterator;
  * @author Peter Kurfer
  * Created on 10/6/17.
  */
-public class SimpleListImpl implements SimpleList, Iterable {
+public class SimpleListImpl implements SimpleList, Iterable<Object> {
 
     private Element head = null;
 
@@ -44,7 +44,7 @@ public class SimpleListImpl implements SimpleList, Iterable {
     }
 
     @Override
-    public Iterator<Element> iterator() {
+    public Iterator<Object> iterator() {
         return null;
     }
 
@@ -60,7 +60,7 @@ public class SimpleListImpl implements SimpleList, Iterable {
         }
     }
 
-    private class SimpleIteratorImpl implements Iterator<Element>{
+    private class SimpleIteratorImpl implements Iterator<Object>{
 
         private Element current = head;
 

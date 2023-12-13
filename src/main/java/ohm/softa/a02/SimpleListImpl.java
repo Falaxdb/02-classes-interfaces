@@ -68,7 +68,7 @@ public class SimpleListImpl implements SimpleList, Iterable<Object> {
 
         @Override
         public boolean hasNext() {
-            return current!= null;
+            return current != null;
         }
 
         @Override

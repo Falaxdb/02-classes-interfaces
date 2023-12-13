@@ -43,7 +43,8 @@ public class SimpleListImpl implements SimpleList, Iterable<Object> {
 
     @Override
     public Iterator<Object> iterator() {
-        return null;
+
+        return new SimpleIteratorImpl();
     }
 
 

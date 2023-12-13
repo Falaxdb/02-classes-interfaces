@@ -6,7 +6,7 @@ import java.util.Iterator;
  * @author Peter Kurfer
  * Created on 10/6/17.
  */
-public class SimpleListImpl implements SimpleList, Iterable<Object>, SimpleFilter {
+public class SimpleListImpl implements SimpleList, Iterable<Object> {
 
     private Element head = null;
 
@@ -38,7 +38,15 @@ public class SimpleListImpl implements SimpleList, Iterable<Object>, SimpleFilte
 
     @Override
     public SimpleList filter(SimpleFilter filter) {
-        return null;
+        SimpleList newlist = new SimpleListImpl();
+
+        for (Object o: this){
+            if (filter.include(o)){
+                newlist.add(o);
+            }
+        }
+
+        return newlist;
     }
 
     @Override
@@ -46,12 +54,6 @@ public class SimpleListImpl implements SimpleList, Iterable<Object>, SimpleFilte
 
         return new SimpleIteratorImpl();
     }
-
-    @Override
-    public boolean include(Object item) {
-        return false;
-    }
-
 
     private static class Element{
 

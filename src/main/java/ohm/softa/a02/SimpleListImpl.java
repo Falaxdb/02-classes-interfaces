@@ -1,7 +1,5 @@
 package ohm.softa.a02;
 
-import com.sun.source.tree.WhileLoopTree;
-
 import java.util.Iterator;
 
 /**
@@ -58,9 +56,13 @@ public class SimpleListImpl implements SimpleList, Iterable<Object> {
             this.item = item;
             this.next = null;
         }
+
+        public Object getItem(){
+            return item;
+        }
     }
 
-    private class SimpleIteratorImpl implements Iterator<Object>{
+    private class SimpleIteratorImpl implements Iterator<Object> {
 
         private Element current = head;
 
@@ -70,8 +72,8 @@ public class SimpleListImpl implements SimpleList, Iterable<Object> {
         }
 
         @Override
-        public Element next() {
-            Element temp = current;
+        public Object next() {
+            Object temp = current.getItem();
             current = current.next;
             return temp;
         }
